@@ -1,11 +1,17 @@
 name: Check If Run From Tag
 description: Small action to check if the source of the action is a git tag, aka a release.
 
+inputs:
+  debug:
+    description: Display more information about the environement of the Action
+    required: false
+
 runs:
   using: "composite"
  
   steps:
   - name: Display Environment
+    if: ${{ inputs.debug }}
     shell: pwsh
     env:
       EVENT_CONTEXT: ${{ toJSON(github.event) }}
