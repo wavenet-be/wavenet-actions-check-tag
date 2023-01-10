@@ -1,0 +1,13 @@
+name: Test The action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    name: Test The Action
+
+    steps:
+      - name: Check if run from tag
+        uses: wavenet-be/wavenet-actions-check-tag@main
